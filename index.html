@@ -1,0 +1,1469 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Анна — развивающие занятия для детей 2–5 лет</title>
+<meta name="description" content="Индивидуальные развивающие и логопедические занятия для детей 2–5 лет. Опыт 4+ года, работа с ОВЗ, образование логопеда. На дому у семьи." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* ---------- RESET ---------- */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  img { max-width: 100%; display: block; }
+  button { font: inherit; cursor: pointer; border: none; background: none; }
+  a { color: inherit; text-decoration: none; }
+  ul { list-style: none; }
+
+  /* ---------- VARIABLES ---------- */
+  :root {
+    --bg: #FBF7F1;
+    --bg-alt: #F4EDE2;
+    --ink: #2C2723;
+    --muted: #776B60;
+    --line: #E8DED0;
+    --accent: #D97A52;
+    --accent-dark: #B85F3A;
+    --accent-soft: #F5DDCC;
+    --sage: #8BA888;
+    --sage-soft: #E1EAD8;
+    --peach: #F3D5C1;
+    --white: #FFFFFF;
+    --radius: 20px;
+    --radius-lg: 32px;
+    --shadow: 0 10px 30px -12px rgba(44, 39, 35, 0.15);
+    --shadow-lg: 0 30px 60px -20px rgba(44, 39, 35, 0.25);
+    --font-serif: 'Fraunces', Georgia, serif;
+    --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+    --container: 1180px;
+  }
+
+  /* ---------- BASE ---------- */
+  body {
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink);
+    background: var(--bg);
+    font-weight: 400;
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 500; line-height: 1.15; letter-spacing: -0.02em; }
+  h1 { font-size: clamp(2.2rem, 5vw, 3.8rem); }
+  h2 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+  h3 { font-size: 1.35rem; }
+  p { color: var(--muted); }
+
+  .container {
+    width: 100%;
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .eyebrow {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+
+  .section {
+    padding: clamp(64px, 9vw, 120px) 0;
+  }
+  .section-head {
+    max-width: 720px;
+    margin-bottom: 56px;
+  }
+  .section-head p {
+    font-size: 1.08rem;
+    margin-top: 16px;
+  }
+
+  /* ---------- BUTTONS ---------- */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 28px;
+    border-radius: 999px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: all 0.25s ease;
+    white-space: nowrap;
+  }
+  .btn-primary {
+    background: var(--ink);
+    color: var(--white);
+  }
+  .btn-primary:hover {
+    background: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px -10px rgba(217, 122, 82, 0.6);
+  }
+  .btn-secondary {
+    background: transparent;
+    color: var(--ink);
+    border: 1.5px solid var(--ink);
+  }
+  .btn-secondary:hover {
+    background: var(--ink);
+    color: var(--white);
+  }
+  .btn-sm { padding: 10px 22px; font-size: 0.88rem; }
+  .btn-accent {
+    background: var(--accent);
+    color: var(--white);
+  }
+  .btn-accent:hover {
+    background: var(--accent-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px -10px rgba(217, 122, 82, 0.6);
+  }
+
+  /* ---------- HEADER ---------- */
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(251, 247, 241, 0.85);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s ease;
+  }
+  .site-header.scrolled {
+    border-bottom-color: var(--line);
+    background: rgba(251, 247, 241, 0.95);
+  }
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    height: 76px;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+  }
+  .logo-mark {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: var(--white);
+    display: grid;
+    place-items: center;
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+  .logo-text { display: flex; flex-direction: column; line-height: 1.1; }
+  .logo-text small {
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    color: var(--muted);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    margin-top: 2px;
+  }
+  .nav {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+  }
+  .nav a {
+    font-size: 0.92rem;
+    color: var(--muted);
+    transition: color 0.2s;
+    position: relative;
+  }
+  .nav a:hover { color: var(--ink); }
+  .nav a::after {
+    content: '';
+    position: absolute;
+    left: 0; bottom: -6px;
+    width: 0; height: 2px;
+    background: var(--accent);
+    transition: width 0.25s;
+  }
+  .nav a:hover::after { width: 100%; }
+
+  .burger {
+    display: none;
+    width: 40px; height: 40px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+  }
+  .burger span {
+    width: 22px; height: 2px;
+    background: var(--ink);
+    border-radius: 2px;
+    transition: 0.3s;
+  }
+  .burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .burger.open span:nth-child(2) { opacity: 0; }
+  .burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    padding: clamp(32px, 5vw, 56px) 0 clamp(64px, 9vw, 110px);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--accent-soft) 0%, transparent 70%);
+    z-index: 0;
+    opacity: 0.6;
+  }
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 64px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--sage-soft);
+    color: var(--ink);
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    margin-bottom: 24px;
+  }
+  .badge::before {
+    content: '';
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--sage);
+  }
+  .hero h1 {
+    margin-bottom: 24px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent);
+    font-family: var(--font-serif);
+    position: relative;
+  }
+  .hero-sub {
+    font-size: 1.1rem;
+    color: var(--muted);
+    max-width: 520px;
+    margin-bottom: 36px;
+  }
+  .hero-buttons {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 48px;
+  }
+  .hero-stats {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    padding-top: 32px;
+    border-top: 1px solid var(--line);
+  }
+  .hero-stats > div { display: flex; flex-direction: column; }
+  .hero-stats strong {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    color: var(--ink);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .hero-stats span {
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+
+  /* Hero visual */
+  .hero-visual {
+    position: relative;
+    aspect-ratio: 4/5;
+    max-width: 480px;
+    margin-left: auto;
+  }
+  .hv-photo {
+    width: 100%; height: 100%;
+    border-radius: var(--radius-lg);
+    background:
+      radial-gradient(circle at 30% 25%, #F8DCC8 0%, transparent 55%),
+      radial-gradient(circle at 75% 80%, #E6D8EA 0%, transparent 55%),
+      linear-gradient(135deg, #FAE8D8 0%, #F5D5C5 100%);
+    display: grid;
+    place-items: center;
+    text-align: center;
+    padding: 32px;
+    color: var(--ink);
+    font-size: 0.9rem;
+    font-weight: 500;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    overflow: hidden;
+  }
+  .hv-photo::before {
+    content: '📸';
+    position: absolute;
+    font-size: 64px;
+    opacity: 0.35;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .hv-photo span {
+    position: relative;
+    z-index: 1;
+    margin-top: 100px;
+    max-width: 200px;
+    opacity: 0.75;
+  }
+  .sticker {
+    position: absolute;
+    width: 64px; height: 64px;
+    border-radius: 50%;
+    background: var(--white);
+    display: grid;
+    place-items: center;
+    font-size: 28px;
+    box-shadow: var(--shadow);
+    animation: float 6s ease-in-out infinite;
+  }
+  .s1 { top: -16px; left: -16px; animation-delay: 0s; }
+  .s2 { top: 20%; right: -24px; animation-delay: 1.5s; }
+  .s3 { bottom: 20%; left: -24px; animation-delay: 3s; }
+  .s4 { bottom: -16px; right: 10%; animation-delay: 4.5s; }
+  @keyframes float {
+    0%, 100% { transform: translateY(0) rotate(-4deg); }
+    50% { transform: translateY(-12px) rotate(4deg); }
+  }
+  .hv-badge {
+    position: absolute;
+    bottom: 24px; left: 24px; right: 24px;
+    background: var(--white);
+    padding: 12px 20px;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: var(--shadow);
+  }
+  .hv-badge::before {
+    content: '';
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: #6FBF73;
+    box-shadow: 0 0 0 4px rgba(111, 191, 115, 0.25);
+    flex-shrink: 0;
+  }
+
+  /* ---------- TRUST BAR ---------- */
+  .trust {
+    background: var(--ink);
+    color: var(--white);
+    padding: 40px 0;
+  }
+  .trust-inner {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    text-align: center;
+  }
+  .trust-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.85);
+  }
+  .trust-item strong {
+    font-family: var(--font-serif);
+    font-size: 1.6rem;
+    color: var(--white);
+    font-weight: 500;
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 64px;
+    align-items: center;
+  }
+  .about-visual {
+    aspect-ratio: 4/5;
+    border-radius: var(--radius-lg);
+    background:
+      radial-gradient(circle at 70% 30%, #F8DCC8 0%, transparent 60%),
+      linear-gradient(160deg, #E1EAD8 0%, #C9D8BD 100%);
+    display: grid;
+    place-items: center;
+    text-align: center;
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+  }
+  .about-visual::before {
+    content: '👩‍🏫';
+    font-size: 88px;
+    opacity: 0.7;
+  }
+  .about-visual span {
+    position: absolute;
+    bottom: 24px; left: 24px; right: 24px;
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(8px);
+    padding: 12px 18px;
+    border-radius: 14px;
+    font-size: 0.82rem;
+    color: var(--ink);
+    font-weight: 500;
+  }
+  .about h2 { margin-bottom: 20px; }
+  .about-lead {
+    font-size: 1.08rem;
+    color: var(--ink);
+    margin-bottom: 28px;
+  }
+  .about-list {
+    display: grid;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .about-list li {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    font-size: 0.95rem;
+    color: var(--ink);
+  }
+  .about-list li::before {
+    content: '✓';
+    flex-shrink: 0;
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    background: var(--accent-soft);
+    color: var(--accent-dark);
+    display: grid;
+    place-items: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-top: 2px;
+  }
+
+  /* ---------- PROGRAMS ---------- */
+  .programs { background: var(--bg-alt); }
+  .programs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+  }
+  .program {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+  }
+  .program:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--line);
+  }
+  .program-icon {
+    width: 56px; height: 56px;
+    border-radius: 16px;
+    display: grid;
+    place-items: center;
+    font-size: 26px;
+    margin-bottom: 20px;
+    background: var(--accent-soft);
+  }
+  .program:nth-child(2) .program-icon { background: var(--sage-soft); }
+  .program:nth-child(3) .program-icon { background: #F5E4C7; }
+  .program:nth-child(4) .program-icon { background: #E6D8EA; }
+  .program:nth-child(5) .program-icon { background: #FAD9D3; }
+  .program-age {
+    font-size: 0.78rem;
+    color: var(--muted);
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .program h3 {
+    margin-bottom: 12px;
+    font-family: var(--font-serif);
+    font-size: 1.28rem;
+  }
+  .program-desc {
+    font-size: 0.92rem;
+    color: var(--muted);
+    margin-bottom: 20px;
+    flex: 1;
+  }
+  .program-result {
+    padding-top: 18px;
+    border-top: 1px dashed var(--line);
+    font-size: 0.88rem;
+    color: var(--ink);
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .program-result::before {
+    content: '★';
+    color: var(--accent);
+    font-size: 1rem;
+    flex-shrink: 0;
+    line-height: 1.4;
+  }
+  .program-result strong {
+    display: block;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  /* ---------- APPROACH ---------- */
+  .approach-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+  }
+  .approach-card {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 28px 24px;
+  }
+  .approach-card .num {
+    font-family: var(--font-serif);
+    font-size: 2.2rem;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+  .approach-card h3 {
+    font-size: 1.05rem;
+    margin-bottom: 8px;
+  }
+  .approach-card p {
+    font-size: 0.9rem;
+  }
+
+  /* ---------- PRICES ---------- */
+  .prices { background: var(--bg-alt); }
+  .prices-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .price-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 36px 32px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border: 1.5px solid transparent;
+    transition: all 0.3s;
+  }
+  .price-card.featured {
+    border-color: var(--accent);
+    background: linear-gradient(180deg, #FFF7F2 0%, #FFFFFF 100%);
+  }
+  .price-label {
+    position: absolute;
+    top: -12px; left: 32px;
+    background: var(--accent);
+    color: var(--white);
+    padding: 5px 14px;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+  .price-name {
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+  }
+  .price-desc {
+    font-size: 0.88rem;
+    color: var(--muted);
+    margin-bottom: 24px;
+    min-height: 44px;
+  }
+  .price-amount {
+    font-family: var(--font-serif);
+    font-size: 2.6rem;
+    line-height: 1;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .price-amount small {
+    font-size: 1rem;
+    color: var(--muted);
+    font-family: var(--font-sans);
+  }
+  .price-per {
+    font-size: 0.82rem;
+    color: var(--muted);
+    margin-bottom: 28px;
+  }
+  .price-features {
+    display: grid;
+    gap: 10px;
+    margin-bottom: 28px;
+    flex: 1;
+  }
+  .price-features li {
+    font-size: 0.88rem;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    color: var(--ink);
+  }
+  .price-features li::before {
+    content: '✓';
+    color: var(--sage);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .price-note {
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-top: 32px;
+  }
+
+  /* ---------- FAQ ---------- */
+  .faq-grid {
+    display: grid;
+    gap: 12px;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+  .faq-item {
+    background: var(--white);
+    border-radius: var(--radius);
+    border: 1px solid var(--line);
+    overflow: hidden;
+  }
+  .faq-q {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    text-align: left;
+    font-weight: 500;
+    font-size: 1rem;
+    color: var(--ink);
+    gap: 16px;
+  }
+  .faq-q::after {
+    content: '+';
+    font-size: 1.6rem;
+    font-weight: 300;
+    color: var(--accent);
+    transition: transform 0.3s;
+    line-height: 1;
+  }
+  .faq-item.open .faq-q::after {
+    transform: rotate(45deg);
+  }
+  .faq-a {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+  .faq-a-inner {
+    padding: 0 24px 24px;
+    font-size: 0.94rem;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  /* ---------- CONTACT ---------- */
+  .contact {
+    background: var(--ink);
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+  }
+  .contact::before {
+    content: '';
+    position: absolute;
+    bottom: -300px; left: -200px;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(217,122,82,0.25) 0%, transparent 70%);
+  }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+    position: relative;
+    z-index: 1;
+  }
+  .contact h2 { color: var(--white); margin-bottom: 20px; }
+  .contact-lead {
+    color: rgba(255,255,255,0.75);
+    font-size: 1.05rem;
+    margin-bottom: 32px;
+  }
+  .contact-methods {
+    display: grid;
+    gap: 14px;
+    margin-top: 32px;
+  }
+  .contact-method {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 18px;
+    border-radius: 14px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: all 0.25s;
+    color: var(--white);
+  }
+  .contact-method:hover {
+    background: rgba(255,255,255,0.12);
+    transform: translateX(4px);
+  }
+  .contact-method-icon {
+    width: 42px; height: 42px;
+    border-radius: 12px;
+    background: rgba(217, 122, 82, 0.2);
+    display: grid;
+    place-items: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+  .contact-method div { display: flex; flex-direction: column; }
+  .contact-method small {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .contact-method span {
+    font-size: 0.98rem;
+    font-weight: 500;
+  }
+
+  .contact-form {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 40px;
+    color: var(--ink);
+  }
+  .contact-form h3 {
+    margin-bottom: 8px;
+    font-size: 1.4rem;
+  }
+  .contact-form > p {
+    font-size: 0.9rem;
+    margin-bottom: 24px;
+  }
+  .form-group {
+    margin-bottom: 16px;
+  }
+  .form-group label {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1.5px solid var(--line);
+    border-radius: 12px;
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    color: var(--ink);
+    background: var(--bg);
+    transition: border-color 0.2s;
+  }
+  .form-group input:focus,
+  .form-group textarea:focus,
+  .form-group select:focus {
+    outline: none;
+    border-color: var(--accent);
+    background: var(--white);
+  }
+  .form-group textarea { resize: vertical; min-height: 80px; }
+  .form-submit {
+    width: 100%;
+    margin-top: 8px;
+  }
+  .form-note {
+    font-size: 0.75rem;
+    color: var(--muted);
+    text-align: center;
+    margin-top: 14px;
+    line-height: 1.5;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    background: var(--ink);
+    color: rgba(255,255,255,0.6);
+    padding: 40px 0;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    font-size: 0.85rem;
+  }
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .footer-inner a:hover { color: var(--white); }
+
+  /* ---------- FLOATING WA ---------- */
+  .float-wa {
+    position: fixed;
+    bottom: 24px; right: 24px;
+    width: 60px; height: 60px;
+    border-radius: 50%;
+    background: #25D366;
+    color: var(--white);
+    display: grid;
+    place-items: center;
+    font-size: 28px;
+    box-shadow: 0 10px 30px -6px rgba(37, 211, 102, 0.5);
+    z-index: 90;
+    transition: transform 0.25s;
+  }
+  .float-wa:hover { transform: scale(1.08); }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 960px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+    .hero-visual { margin: 0 auto; max-width: 400px; }
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .about-visual { max-width: 400px; margin: 0 auto; }
+    .prices-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+    .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+    .trust-inner { grid-template-columns: repeat(2, 1fr); gap: 28px; }
+  }
+
+  @media (max-width: 720px) {
+    .nav { display: none; }
+    .header-inner > .btn { display: none; }
+    .burger { display: flex; }
+    .nav.open {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 76px; left: 0; right: 0;
+      background: var(--bg);
+      padding: 24px;
+      gap: 20px;
+      border-bottom: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+    .nav.open a { font-size: 1.05rem; }
+    .hero-stats { gap: 28px; }
+    .contact-form { padding: 28px; }
+    .footer-inner { flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body id="top">
+
+<!-- ========== HEADER ========== -->
+<header class="site-header" id="siteHeader">
+  <div class="container header-inner">
+    <a href="#top" class="logo">
+      <span class="logo-mark">А</span>
+      <span class="logo-text">
+        Анна
+        <small>развитие детей 2–5 лет</small>
+      </span>
+    </a>
+    <nav class="nav" id="mainNav">
+      <a href="#about">Обо мне</a>
+      <a href="#programs">Программы</a>
+      <a href="#approach">Подход</a>
+      <a href="#prices">Цены</a>
+      <a href="#faq">Вопросы</a>
+    </nav>
+    <a href="#contact" class="btn btn-primary btn-sm">Записаться</a>
+    <button class="burger" id="burger" aria-label="Открыть меню">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ========== HERO ========== -->
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="hero-content">
+      <span class="badge">Индивидуальные занятия · 2–5 лет</span>
+      <h1>Зажигаю в детях <em>интерес к миру</em></h1>
+      <p class="hero-sub">
+        Развивающие и логопедические занятия для детей 2–5 лет. Опыт более 4 лет,
+        работа с ОВЗ, второе образование — логопед. Мягко, бережно, через игру.
+      </p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn btn-accent">Записаться на знакомство</a>
+        <a href="#programs" class="btn btn-secondary">Смотреть программы</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <strong>4+</strong>
+          <span>года опыта</span>
+        </div>
+        <div>
+          <strong>2 года</strong>
+          <span>в частном саду</span>
+        </div>
+        <div>
+          <strong>ОВЗ</strong>
+          <span>индивидуальный подход</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hv-photo">
+        <span>Здесь будет ваше фото с занятия</span>
+      </div>
+      <span class="sticker s1">🧸</span>
+      <span class="sticker s2">🌈</span>
+      <span class="sticker s3">🧩</span>
+      <span class="sticker s4">📚</span>
+      <div class="hv-badge">Есть свободные места на этот месяц</div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== TRUST ========== -->
+<section class="trust">
+  <div class="container trust-inner">
+    <div class="trust-item">
+      <strong>4+</strong>
+      <span>года опыта с детьми</span>
+    </div>
+    <div class="trust-item">
+      <strong>2 года</strong>
+      <span>воспитатель в «Smile Fish»</span>
+    </div>
+    <div class="trust-item">
+      <strong>Логопедия</strong>
+      <span>второе образование</span>
+    </div>
+    <div class="trust-item">
+      <strong>ОВЗ</strong>
+      <span>успешный опыт работы</span>
+    </div>
+  </div>
+</section>
+
+<!-- ========== ABOUT ========== -->
+<section class="section about" id="about">
+  <div class="container about-grid">
+    <div class="about-visual">
+      <span>Здесь будет ваше фото</span>
+    </div>
+    <div>
+      <span class="eyebrow">Обо мне</span>
+      <h2>Люблю детей — и горю своим делом</h2>
+      <p class="about-lead">
+        Меня зовут Анна. Уже более 4 лет я работаю с детьми — и каждый раз
+        убеждаюсь: важно не просто проводить время с ребенком, а зажигать
+        в его глазах интерес к миру.
+      </p>
+      <ul class="about-list">
+        <li>Официальный опыт воспитателя в частном детском саду «Smile Fish» — 2 года</li>
+        <li>Педагогическая практика в государственных дошкольных учреждениях — 2 года</li>
+        <li>Частная работа няней — последний год, включая семьи с детьми с ОВЗ</li>
+        <li>Получаю второе образование — «Фундаментальная логопедия»</li>
+      </ul>
+      <p style="font-size: 0.95rem;">
+        Помогаю детям становиться добрее, увереннее и самостоятельнее.
+        Ищу семью, которая разделяет ценности осознанного родительства
+        и верит в индивидуальный подход к воспитанию.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PROGRAMS ========== -->
+<section class="section programs" id="programs">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Программы</span>
+      <h2>5 направлений развития</h2>
+      <p>
+        Каждая программа подбирается индивидуально под ребенка. Мы можем
+        комбинировать направления, менять акценты и темп — под ваши цели
+        и особенности малыша.
+      </p>
+    </div>
+    <div class="programs-grid">
+
+      <article class="program">
+        <div class="program-icon">🧩</div>
+        <div class="program-age">2–3 года · 45 мин</div>
+        <h3>Раннее развитие</h3>
+        <p class="program-desc">
+          Всестороннее развитие через игру: сенсорика, крупная и мелкая
+          моторика, речь, пальчиковые игры, сенсорные коробки и творчество.
+        </p>
+        <div class="program-result">
+          <div>
+            <strong>Результат</strong>
+            Больше слов в речи, лучшая координация, устойчивый интерес
+            к исследованию мира и самостоятельность в игре.
+          </div>
+        </div>
+      </article>
+
+      <article class="program">
+        <div class="program-icon">🗣</div>
+        <div class="program-age">2–5 лет · 45–60 мин</div>
+        <h3>Речь и логопедия</h3>
+        <p class="program-desc">
+          Артикуляционная гимнастика, развитие фонематического слуха,
+          постановка звуков, речевые игры, обогащение словаря.
+        </p>
+        <div class="program-result">
+          <div>
+            <strong>Результат</strong>
+            Чистые звуки, грамотно построенная фраза, готовность к чтению
+            и уверенность в общении.
+          </div>
+        </div>
+      </article>
+
+      <article class="program">
+        <div class="program-icon">🎯</div>
+        <div class="program-age">2–3 года · 45 мин</div>
+        <h3>Мягкая адаптация к садику</h3>
+        <p class="program-desc">
+          Игровой режим, навыки самообслуживания, социализация,
+          эмоциональная регуляция и подготовка к расставанию с мамой.
+        </p>
+        <div class="program-result">
+          <div>
+            <strong>Результат</strong>
+            Лёгкая адаптация в коллективе, меньше тревоги и слёз,
+            базовые навыки общения со сверстниками.
+          </div>
+        </div>
+      </article>
+
+      <article class="program">
+        <div class="program-icon">📚</div>
+        <div class="program-age">3–5 лет · 60 мин</div>
+        <h3>Комплексное развитие</h3>
+        <p class="program-desc">
+          Логика, внимание, память, математические представления,
+          подготовка к чтению и письму, развитие усидчивости.
+        </p>
+        <div class="program-result">
+          <div>
+            <strong>Результат</strong>
+            Уверенность в себе, усидчивость, готовность к школе
+            и интерес к обучению.
+          </div>
+        </div>
+      </article>
+
+      <article class="program">
+        <div class="program-icon">💛</div>
+        <div class="program-age">2–5 лет · 45–60 мин</div>
+        <h3>Занятия для детей с ОВЗ</h3>
+        <p class="program-desc">
+          Индивидуальная программа под запрос семьи, сенсорная интеграция,
+          речевые и когнитивные упражнения, работа с родителями.
+        </p>
+        <div class="program-result">
+          <div>
+            <strong>Результат</strong>
+            Прогресс по индивидуальным целям, ресурсы и поддержка
+            для всей семьи.
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== APPROACH ========== -->
+<section class="section" id="approach">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Мой подход</span>
+      <h2>5 принципов, на которых строится каждое занятие</h2>
+      <p>
+        Не бывает двух одинаковых детей — и не бывает одинаковых занятий.
+        Вот что важно для меня.
+      </p>
+    </div>
+    <div class="approach-grid">
+      <div class="approach-card">
+        <div class="num">01</div>
+        <h3>Игра как основа</h3>
+        <p>Учу через игру, а не принуждение. Ребенок не замечает, что «занимается» — ему интересно.</p>
+      </div>
+      <div class="approach-card">
+        <div class="num">02</div>
+        <h3>Индивидуальная программа</h3>
+        <p>Программа подстраивается под ребенка, а не под шаблон. Учитываю темп, интересы, особенности.</p>
+      </div>
+      <div class="approach-card">
+        <div class="num">03</div>
+        <h3>Опора на сильные стороны</h3>
+        <p>Замечаю то, что ребенок уже умеет, и мягко двигаюсь от этого. Без давления и сравнений.</p>
+      </div>
+      <div class="approach-card">
+        <div class="num">04</div>
+        <h3>Работа с родителями</h3>
+        <p>После каждого занятия — обратная связь. Даю рекомендации и простые домашние задания.</p>
+      </div>
+      <div class="approach-card">
+        <div class="num">05</div>
+        <h3>Безопасная среда</h3>
+        <p>Эмоциональный комфорт и бережное отношение. Сначала — доверие, потом — результат.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PRICES ========== -->
+<section class="section prices" id="prices">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Стоимость</span>
+      <h2>Прозрачные цены</h2>
+      <p>
+        Одно занятие длится 45 минут (2–3 года) или 60 минут (3–5 лет).
+        Все материалы привожу с собой.
+      </p>
+    </div>
+    <div class="prices-grid">
+
+      <div class="price-card">
+        <div class="price-name">Пробное занятие</div>
+        <p class="price-desc">
+          Знакомство, диагностика интересов и уровня развития. Без обязательств.
+        </p>
+        <div class="price-amount">3 500 <small>₽</small></div>
+        <div class="price-per">за одно занятие</div>
+        <ul class="price-features">
+          <li>45–60 минут</li>
+          <li>Знакомство с ребенком и родителями</li>
+          <li>Рекомендации по развитию</li>
+          <li>Все материалы включены</li>
+        </ul>
+        <a href="#contact" class="btn btn-secondary">Записаться</a>
+      </div>
+
+      <div class="price-card featured">
+        <span class="price-label">Популярный</span>
+        <div class="price-name">Абонемент на 4 занятия</div>
+        <p class="price-desc">
+          Регулярные занятия 1 раз в неделю — оптимальный старт для стабильного результата.
+        </p>
+        <div class="price-amount">3 200 <small>₽</small></div>
+        <div class="price-per">за занятие · 12 800 ₽ всего</div>
+        <ul class="price-features">
+          <li>45–60 минут каждое</li>
+          <li>Индивидуальная программа</li>
+          <li>Обратная связь после занятия</li>
+          <li>Перенос по договоренности</li>
+        </ul>
+        <a href="#contact" class="btn btn-accent">Записаться</a>
+      </div>
+
+      <div class="price-card">
+        <div class="price-name">Абонемент на 8 занятий</div>
+        <p class="price-desc">
+          Для тех, кто настроен на глубокую работу. 2 занятия в неделю — заметная динамика.
+        </p>
+        <div class="price-amount">3 200 <small>₽</small></div>
+        <div class="price-per">за занятие · 25 600 ₽ всего</div>
+        <ul class="price-features">
+          <li>45–60 минут каждое</li>
+          <li>Индивидуальная программа</li>
+          <li>Развернутая динамика развития</li>
+          <li>Перенос по договоренности</li>
+        </ul>
+        <a href="#contact" class="btn btn-secondary">Записаться</a>
+      </div>
+
+    </div>
+    <p class="price-note">
+      Занятия проводятся индивидуально — на дому у семьи или на нейтральной территории по договоренности.
+    </p>
+  </div>
+</section>
+
+<!-- ========== FAQ ========== -->
+<section class="section" id="faq">
+  <div class="container">
+    <div class="section-head" style="text-align:center; margin-left:auto; margin-right:auto;">
+      <span class="eyebrow">Частые вопросы</span>
+      <h2>Отвечаю на главное</h2>
+    </div>
+
+    <div class="faq-grid">
+
+      <div class="faq-item">
+        <button class="faq-q">С какого возраста вы берёте детей?</button>
+        <div class="faq-a"><div class="faq-a-inner">
+          С 2 лет. Для малышей 2–3 лет занятие длится 45 минут, для детей 3–5 лет — 60 минут. Нагрузка подбирается под возраст и темперамент ребенка.
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">Где проходят занятия?</button>
+        <div class="faq-a"><div class="faq-a-inner">
+          Индивидуальные занятия проходят на дому у семьи (удобнее всего для ребенка — знакомая обстановка) или на нейтральной территории по договоренности. Все материалы привожу с собой.
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">Работаете ли вы с детьми с ОВЗ?</button>
+        <div class="faq-a"><div class="faq-a-inner">
+          Да, у меня есть успешный опыт работы с детьми с ОВЗ. Программа выстраивается индивидуально под запрос семьи, а также с учетом рекомендаций специалистов, если они у вас есть.
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">Нужно ли что-то готовить к занятию?</button>
+        <div class="faq-a"><div class="faq-a-inner">
+          Нет. Все материалы (развивающие пособия, сенсорные наборы, игры, творческие принадлежности) я привожу с собой. От вас нужно только удобное пространство и хорошее настроение.
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">Как проходит первое занятие?</button>
+        <div class="faq-a"><div class="faq-a-inner">
+          Первое занятие — знакомство. Я мягко вступаю в контакт с ребенком, наблюдаю за его интересами и уровнем развития, а с родителями обсуждаю цели и ожидания. По итогам даю рекомендации.
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">Что если мы пропустили занятие по абонементу?</button>
+        <div class="faq-a"><div class="faq-a-inner">
+          По абонементу возможен перенос занятия по договоренности (например, из-за болезни или поездки). Просто предупредите заранее — подберем удобное время.
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">Как записаться?</button>
+        <div class="faq-a"><div class="faq-a-inner">
+          Самый быстрый способ — написать мне в WhatsApp или Telegram, или заполнить форму на этом сайте. Я отвечу, уточню детали и предложу свободное время для первого занятия.
+        </div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== CONTACT ========== -->
+<section class="section contact" id="contact">
+  <div class="container contact-grid">
+
+    <div>
+      <span class="eyebrow" style="color: var(--accent-soft);">Связаться</span>
+      <h2>Давайте знакомиться</h2>
+      <p class="contact-lead">
+        Напишите мне удобным способом — расскажу подробнее о занятиях,
+        отвечу на вопросы и предложу свободное время для первого занятия.
+      </p>
+
+      <div class="contact-methods">
+        <!-- ЗАМЕНИТЕ НОМЕР ТЕЛЕФОНА -->
+        <a href="https://wa.me/79000000000" target="_blank" class="contact-method">
+          <div class="contact-method-icon">💬</div>
+          <div>
+            <small>WhatsApp</small>
+            <span>+7 (900) 000-00-00</span>
+          </div>
+        </a>
+        <!-- ЗАМЕНИТЕ НИК TELEGRAM -->
+        <a href="https://t.me/anna_kids" target="_blank" class="contact-method">
+          <div class="contact-method-icon">✈️</div>
+          <div>
+            <small>Telegram</small>
+            <span>@anna_kids</span>
+          </div>
+        </a>
+        <!-- ЗАМЕНИТЕ EMAIL -->
+        <a href="mailto:hello@example.com" class="contact-method">
+          <div class="contact-method-icon">✉️</div>
+          <div>
+            <small>Email</small>
+            <span>hello@example.com</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <form class="contact-form" id="contactForm">
+      <h3>Оставить заявку</h3>
+      <p>Заполните — и я свяжусь с вами в ближайшее время.</p>
+
+      <div class="form-group">
+        <label for="name">Ваше имя *</label>
+        <input type="text" id="name" name="name" required placeholder="Как к вам обращаться?" />
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Телефон или ник в Telegram *</label>
+        <input type="text" id="phone" name="phone" required placeholder="+7 (___) ___-__-__" />
+      </div>
+
+      <div class="form-group">
+        <label for="age">Возраст ребенка</label>
+        <select id="age" name="age">
+          <option value="">Выберите</option>
+          <option>2 года</option>
+          <option>3 года</option>
+          <option>4 года</option>
+          <option>5 лет</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Комментарий</label>
+        <textarea id="message" name="message" placeholder="Что важно знать о ребенке? Какие цели?"></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-accent form-submit">Отправить в WhatsApp →</button>
+      <p class="form-note">
+        Нажимая кнопку, вы перейдёте в WhatsApp с готовым сообщением.
+        Никаких автоматических рассылок — только личное общение.
+      </p>
+    </form>
+
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <div class="container footer-inner">
+    <div>© <span id="year"></span> Анна · Развивающие занятия для детей 2–5 лет</div>
+    <div>
+      <a href="#top">Наверх ↑</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Плавающая кнопка WhatsApp -->
+<!-- ЗАМЕНИТЕ НОМЕР -->
+<a href="https://wa.me/79000000000" target="_blank" class="float-wa" aria-label="Написать в WhatsApp">💬</a>
+
+<script>
+  /* ---------- Year ---------- */
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* ---------- Sticky header ---------- */
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  /* ---------- Mobile menu ---------- */
+  const burger = document.getElementById('burger');
+  const nav = document.getElementById('mainNav');
+  burger.addEventListener('click', () => {
+    burger.classList.toggle('open');
+    nav.classList.toggle('open');
+  });
+  nav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      burger.classList.remove('open');
+      nav.classList.remove('open');
+    });
+  });
+
+  /* ---------- FAQ accordion ---------- */
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      const answer = item.querySelector('.faq-a');
+      const isOpen = item.classList.contains('open');
+
+      // close all
+      document.querySelectorAll('.faq-item.open').forEach(opened => {
+        opened.classList.remove('open');
+        opened.querySelector('.faq-a').style.maxHeight = null;
+      });
+
+      if (!isOpen) {
+        item.classList.add('open');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+      }
+    });
+  });
+
+  /* ---------- Contact form → WhatsApp ---------- */
+  /* ЗАМЕНИТЕ НОМЕР В ПЕРЕМЕННОЙ PHONE */
+  const PHONE = '79000000000';
+
+  document.getElementById('contactForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const name = document.getElementById('name').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const age = document.getElementById('age').value;
+    const message = document.getElementById('message').value.trim();
+
+    const text = `Здравствуйте! Хочу записаться на занятие.%0A%0A` +
+                 `👤 Имя: ${encodeURIComponent(name)}%0A` +
+                 `📞 Контакт: ${encodeURIComponent(phone)}%0A` +
+                 (age ? `🧒 Возраст ребенка: ${encodeURIComponent(age)}%0A` : '') +
+                 (message ? `💬 Комментарий: ${encodeURIComponent(message)}` : '');
+
+    window.open(`https://wa.me/${PHONE}?text=${text}`, '_blank');
+  });
+</script>
+
+</body>
+</html>
