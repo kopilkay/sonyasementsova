@@ -19,14 +19,14 @@
 
   /* ---------- VARIABLES (Ярко-розовая палитра) ---------- */
   :root {
-    --bg: #FFF5F7;          /* Нежный розовый фон */
-    --bg-alt: #FFEAF0;      /* Чуть более насыщенный розовый для секций */
-    --ink: #421D2B;         /* Глубокий сливовый (темно-бордовый) для текста */
-    --muted: #8E6977;       /* Розово-серый для второстепенного текста */
-    --line: #FAD0DC;        /* Явная розовая линия */
-    --accent: #F06292;      /* Яркий розовый (акцент) */
-    --accent-dark: #E91E63; /* Насыщенный розовый (ховер) */
-    --accent-soft: #FCE4EC; /* Светло-розовый для фонов */
+    --bg: #FFF5F7;          
+    --bg-alt: #FFEAF0;      
+    --ink: #421D2B;         
+    --muted: #8E6977;       
+    --line: #FAD0DC;        
+    --accent: #F06292;      
+    --accent-dark: #E91E63; 
+    --accent-soft: #FCE4EC; 
     --white: #FFFFFF;
     --radius: 20px;
     --radius-lg: 32px;
@@ -168,6 +168,8 @@
     gap: 12px;
     font-family: var(--font-serif);
     font-size: 1.15rem;
+    position: relative;
+    z-index: 101;
   }
   .logo-mark {
     width: 40px; height: 40px;
@@ -217,6 +219,8 @@
     justify-content: center;
     align-items: center;
     gap: 5px;
+    position: relative;
+    z-index: 101;
   }
   .burger span {
     width: 22px; height: 2px;
@@ -251,6 +255,10 @@
     align-items: center;
     position: relative;
     z-index: 1;
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2; /* Защита от наезжания декоративных элементов */
   }
   .badge {
     display: inline-flex;
@@ -317,6 +325,7 @@
     aspect-ratio: 4/5;
     max-width: 480px;
     margin-left: auto;
+    z-index: 1;
   }
   .hv-photo {
     width: 100%; height: 100%;
@@ -349,21 +358,26 @@
     max-width: 200px;
     opacity: 0.75;
   }
+  
+  /* Обновленные стикеры (чтобы не наезжали на текст) */
   .sticker {
     position: absolute;
-    width: 64px; height: 64px;
+    width: 56px; height: 56px;
     border-radius: 50%;
     background: var(--white);
     display: grid;
     place-items: center;
-    font-size: 28px;
+    font-size: 24px;
     box-shadow: var(--shadow);
     animation: float 6s ease-in-out infinite;
+    pointer-events: none; /* Пропускают клики сквозь себя */
+    z-index: 3;
   }
-  .s1 { top: -16px; left: -16px; animation-delay: 0s; }
-  .s2 { top: 20%; right: -24px; animation-delay: 1.5s; }
-  .s3 { bottom: 20%; left: -24px; animation-delay: 3s; }
-  .s4 { bottom: -16px; right: 10%; animation-delay: 4.5s; }
+  .s1 { top: 10px; left: -10px; animation-delay: 0s; }
+  .s2 { top: 25%; right: -15px; animation-delay: 1.5s; }
+  .s3 { bottom: 25%; left: -15px; animation-delay: 3s; }
+  .s4 { bottom: 10px; right: 10%; animation-delay: 4.5s; }
+  
   @keyframes float {
     0%, 100% { transform: translateY(0) rotate(-4deg); }
     50% { transform: translateY(-12px) rotate(4deg); }
@@ -380,6 +394,7 @@
     align-items: center;
     gap: 8px;
     box-shadow: var(--shadow);
+    z-index: 3;
   }
   .hv-badge::before {
     content: '';
@@ -392,7 +407,7 @@
 
   /* ---------- TRUST BAR ---------- */
   .trust {
-    background: #3D1C29; /* Темно-сливовый */
+    background: #3D1C29;
     color: var(--white);
     padding: 40px 0;
   }
@@ -589,30 +604,67 @@
     font-size: 0.9rem;
   }
 
+  /* ---------- BENEFITS (NEW BLOCK) ---------- */
+  .benefits {
+    background: var(--bg-alt);
+  }
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+  }
+  .benefit-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 32px 28px;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+  }
+  .benefit-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow);
+    border-color: var(--line);
+  }
+  .benefit-icon {
+    font-size: 32px;
+    margin-bottom: 16px;
+  }
+  .benefit-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+  }
+  .benefit-card p {
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+
   /* ---------- PRICES ---------- */
-  .prices { background: var(--bg-alt); }
+  .prices { 
+    background: var(--bg); /* Светлый фон, так как выше был bg-alt */
+  }
   .prices-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 24px;
   }
   .price-card {
     background: var(--white);
     border-radius: var(--radius);
-    padding: 36px 32px;
+    padding: 32px 28px;
     display: flex;
     flex-direction: column;
     position: relative;
-    border: 1.5px solid transparent;
+    border: 1.5px solid var(--line);
     transition: all 0.3s;
   }
   .price-card.featured {
     border-color: var(--accent);
     background: linear-gradient(180deg, #FFF0F3 0%, #FFFFFF 100%);
+    box-shadow: 0 12px 30px -10px rgba(240, 98, 146, 0.2);
   }
   .price-label {
     position: absolute;
-    top: -12px; left: 32px;
+    top: -12px; left: 28px;
     background: var(--accent);
     color: var(--white);
     padding: 5px 14px;
@@ -623,21 +675,21 @@
   }
   .price-name {
     font-family: var(--font-serif);
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     margin-bottom: 8px;
   }
   .price-desc {
-    font-size: 0.88rem;
+    font-size: 0.85rem;
     color: var(--muted);
-    margin-bottom: 24px;
-    min-height: 44px;
+    margin-bottom: 20px;
+    min-height: 40px;
   }
   .price-amount {
     font-family: var(--font-serif);
-    font-size: 2.6rem;
+    font-size: 2.4rem;
     line-height: 1;
     color: var(--ink);
-    margin-bottom: 6px;
+    margin-bottom: 4px;
   }
   .price-amount small {
     font-size: 1rem;
@@ -645,18 +697,19 @@
     font-family: var(--font-sans);
   }
   .price-per {
-    font-size: 0.82rem;
+    font-size: 0.8rem;
     color: var(--muted);
-    margin-bottom: 28px;
+    margin-bottom: 24px;
+    min-height: 38px; /* Выравнивание кнопок */
   }
   .price-features {
     display: grid;
     gap: 10px;
-    margin-bottom: 28px;
+    margin-bottom: 24px;
     flex: 1;
   }
   .price-features li {
-    font-size: 0.88rem;
+    font-size: 0.85rem;
     display: flex;
     gap: 10px;
     align-items: flex-start;
@@ -725,7 +778,7 @@
 
   /* ---------- CONTACT ---------- */
   .contact {
-    background: #3D1C29; /* Темно-сливовый */
+    background: #3D1C29;
     color: var(--white);
     position: relative;
     overflow: hidden;
@@ -887,12 +940,18 @@
   /* ---------- RESPONSIVE ---------- */
   @media (max-width: 960px) {
     .hero-inner { grid-template-columns: 1fr; gap: 48px; }
-    .hero-visual { margin: 0 auto; max-width: 400px; }
+    .hero-visual { margin: 0 auto; max-width: 400px; margin-top: 20px; }
     .about-grid { grid-template-columns: 1fr; gap: 40px; }
     .about-visual, .about-img { max-width: 400px; margin: 0 auto; }
-    .prices-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+    .prices-grid { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
     .contact-grid { grid-template-columns: 1fr; gap: 40px; }
     .trust-inner { grid-template-columns: repeat(2, 1fr); gap: 28px; }
+    
+    /* Исправление стикеров на мобильных */
+    .s1 { top: 0; left: 0; width: 44px; height: 44px; font-size: 20px; }
+    .s2 { right: -10px; width: 44px; height: 44px; font-size: 20px; }
+    .s3 { left: -10px; width: 44px; height: 44px; font-size: 20px; }
+    .s4 { bottom: 0; right: 0; width: 44px; height: 44px; font-size: 20px; }
   }
 
   @media (max-width: 720px) {
@@ -909,6 +968,7 @@
       gap: 20px;
       border-bottom: 1px solid var(--line);
       box-shadow: var(--shadow);
+      z-index: 99;
     }
     .nav.open a { font-size: 1.05rem; }
     .hero-stats { gap: 28px; }
@@ -932,7 +992,7 @@
     <nav class="nav" id="mainNav">
       <a href="#about">Обо мне</a>
       <a href="#programs">Программы</a>
-      <a href="#approach">Подход</a>
+      <a href="#benefits">Польза</a>
       <a href="#prices">Цены</a>
       <a href="#faq">Вопросы</a>
     </nav>
@@ -1136,6 +1196,42 @@
   </div>
 </section>
 
+<!-- ========== BENEFITS ========== -->
+<section class="section benefits" id="benefits">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Практическая польза</span>
+      <h2>Что получают родители</h2>
+      <p>
+        Моя задача — не просто занять ребенка, а дать вашей семье ощутимые
+        результаты, спокойствие и инструменты для развития.
+      </p>
+    </div>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="benefit-icon">🛡️</div>
+        <h3>Уверенность в развитии</h3>
+        <p>Вы будете точно знать, что ребенок развивается по возрасту, а слабые места мы мягко подтянем без стресса.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">💡</div>
+        <h3>Понятные ориентиры</h3>
+        <p>После каждого занятия вы получаете обратную связь и простые рекомендации, как играть и развивать ребенка дома.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">☕</div>
+        <h3>Спокойствие и ресурс</h3>
+        <p>Пока мы занимаемся, у вас есть время отдохнуть или посвятить его себе, зная, что ребенок в надежных руках.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">📈</div>
+        <h3>Реальный прогресс</h3>
+        <p>Вы увидите, как расширяется словарный запас, улучшается речь, поведение и навыки самообслуживания.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ========== APPROACH ========== -->
 <section class="section" id="approach">
   <div class="container">
@@ -1199,15 +1295,30 @@
         <div class="price-per">за одно занятие</div>
         <ul class="price-features">
           <li>45–60 минут</li>
-          <li>Знакомство с ребенком и родителями</li>
+          <li>Знакомство с ребенком</li>
           <li>Рекомендации по развитию</li>
           <li>Все материалы включены</li>
         </ul>
         <a href="#contact" class="btn btn-secondary">Записаться</a>
       </div>
 
-      <div class="price-card featured">
-        <span class="price-label">Популярный</span>
+      <div class="price-card">
+        <div class="price-name">Без абонемента</div>
+        <p class="price-desc">
+          Разовое занятие. Удобно, если хотите попробовать формат или нужен гибкий график.
+        </p>
+        <div class="price-amount">3 500 <small>₽</small></div>
+        <div class="price-per">за одно занятие</div>
+        <ul class="price-features">
+          <li>45–60 минут</li>
+          <li>Индивидуальная программа</li>
+          <li>Обратная связь после занятия</li>
+          <li>Без обязательств</li>
+        </ul>
+        <a href="#contact" class="btn btn-secondary">Записаться</a>
+      </div>
+
+      <div class="price-card">
         <div class="price-name">Абонемент на 4 занятия</div>
         <p class="price-desc">
           Регулярные занятия 1 раз в неделю — оптимальный старт для стабильного результата.
@@ -1220,10 +1331,11 @@
           <li>Обратная связь после занятия</li>
           <li>Перенос по договоренности</li>
         </ul>
-        <a href="#contact" class="btn btn-accent">Записаться</a>
+        <a href="#contact" class="btn btn-secondary">Записаться</a>
       </div>
 
-      <div class="price-card">
+      <div class="price-card featured">
+        <span class="price-label">Популярный</span>
         <div class="price-name">Абонемент на 8 занятий</div>
         <p class="price-desc">
           Для тех, кто настроен на глубокую работу. 2 занятия в неделю — заметная динамика.
@@ -1234,6 +1346,22 @@
           <li>45–60 минут каждое</li>
           <li>Индивидуальная программа</li>
           <li>Развернутая динамика развития</li>
+          <li>Перенос по договоренности</li>
+        </ul>
+        <a href="#contact" class="btn btn-accent">Записаться</a>
+      </div>
+
+      <div class="price-card">
+        <div class="price-name">Абонемент на 12 занятий</div>
+        <p class="price-desc">
+          Максимальный результат. 3 занятия в неделю или длительная программа.
+        </p>
+        <div class="price-amount">3 200 <small>₽</small></div>
+        <div class="price-per">за занятие · 38 400 ₽ всего</div>
+        <ul class="price-features">
+          <li>45–60 минут каждое</li>
+          <li>Индивидуальная программа</li>
+          <li>Максимальный прогресс</li>
           <li>Перенос по договоренности</li>
         </ul>
         <a href="#contact" class="btn btn-secondary">Записаться</a>
@@ -1331,11 +1459,11 @@
           </div>
         </a>
         <!-- Telegram -->
-        <a href="https://t.me/sonyasementsova" target="_blank" class="contact-method">
+        <a href="https://t.me/Sonya_5684" target="_blank" class="contact-method">
           <div class="contact-method-icon">✈️</div>
           <div>
             <small>Telegram</small>
-            <span>@sonyasementsova</span>
+            <span>@Sonya_5684</span>
           </div>
         </a>
         <!-- Email -->
@@ -1359,7 +1487,7 @@
       </div>
 
       <div class="form-group">
-        <label for="phone">Телефон или ник в Telegram *</label>
+        <label for="phone">Телефон *</label>
         <input type="text" id="phone" name="phone" required placeholder="+7 (___) ___-__-__" />
       </div>
 
@@ -1371,6 +1499,17 @@
           <option>3 года</option>
           <option>4 года</option>
           <option>5 лет</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="frequency">Сколько занятий в неделю вы рассматриваете? *</label>
+        <select id="frequency" name="frequency" required>
+          <option value="">Выберите</option>
+          <option>1 раз в неделю</option>
+          <option>2 раза в неделю</option>
+          <option>3 раза в неделю</option>
+          <option>Пока не знаю / Нужна консультация</option>
         </select>
       </div>
 
@@ -1454,12 +1593,14 @@
     const name = document.getElementById('name').value.trim();
     const phone = document.getElementById('phone').value.trim();
     const age = document.getElementById('age').value;
+    const frequency = document.getElementById('frequency').value;
     const message = document.getElementById('message').value.trim();
 
     const text = `Здравствуйте! Хочу записаться на занятие.%0A%0A` +
                  `👤 Имя: ${encodeURIComponent(name)}%0A` +
-                 `📞 Контакт: ${encodeURIComponent(phone)}%0A` +
+                 `📞 Телефон: ${encodeURIComponent(phone)}%0A` +
                  (age ? `🧒 Возраст ребенка: ${encodeURIComponent(age)}%0A` : '') +
+                 (frequency ? `📅 Занятий в неделю: ${encodeURIComponent(frequency)}%0A` : '') +
                  (message ? `💬 Комментарий: ${encodeURIComponent(message)}` : '');
 
     window.open(`https://wa.me/${PHONE}?text=${text}`, '_blank');
